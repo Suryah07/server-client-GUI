@@ -2,7 +2,7 @@
 from tkinter import Tk, Frame, Scrollbar, Label, END, Entry, Text, VERTICAL, Button, messagebox #Tkinter Python Module for GUI  
 import socket #Sockets for network connection
 import threading # for multiple proccess 
-
+ 
 
 
 class GUI:
