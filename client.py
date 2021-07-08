@@ -1,7 +1,7 @@
 
-from tkinter import Tk, Frame, Scrollbar, Label, END, Entry, Text, VERTICAL, Button, messagebox #Tkinter Python Module for GUI  
-import socket #Sockets for network connection
-import threading # for multiple proccess 
+from tkinter import Tk, Frame, Scrollbar, Label, END, Entry, Text, VERTICAL, Button, messagebox   
+import socket 
+import threading 
  
 
 
@@ -20,12 +20,12 @@ class GUI:
         self.listen_for_incoming_messages_in_a_thread()
 
     def initialize_socket(self):
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # initialazing socket with TCP and IPv4
-        remote_ip = '127.0.0.1' # IP address 
-        remote_port = 10319 #TCP port
-        self.client_socket.connect((remote_ip, remote_port)) #connect to the remote server
+        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+        remote_ip = '127.0.0.1'  
+        remote_port = 10319 
+        self.client_socket.connect((remote_ip, remote_port)) 
 
-    def initialize_gui(self): # GUI initializer
+    def initialize_gui(self): 
         self.root.title("Socket Chat") 
         self.root.resizable(0, 0)
         self.display_chat_box()
@@ -33,9 +33,9 @@ class GUI:
         self.display_chat_entry_box()
     
     def listen_for_incoming_messages_in_a_thread(self):
-        thread = threading.Thread(target=self.receive_message_from_server, args=(self.client_socket,)) # Create a thread for the send and receive in same time 
+        thread = threading.Thread(target=self.receive_message_from_server, args=(self.client_socket,))  
         thread.start()
-    #function to recieve msg
+    
     def receive_message_from_server(self, so):
         while True:
             buffer = so.recv(256)
