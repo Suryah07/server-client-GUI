@@ -114,8 +114,7 @@ class GUI:
             self.root.destroy()
             self.client_socket.close()
             exit(0)
-
-#the mail function 
+ 
 if __name__ == '__main__':
     root = Tk()
     gui = GUI(root)
